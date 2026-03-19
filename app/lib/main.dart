@@ -46,17 +46,24 @@ class _ControlScreenState extends State<ControlScreen> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
+        backgroundColor: const Color(0xFF151515),
         title: const Text(
           'Mecanozaurus',
           style: TextStyle(color: Color(0xFFe63416)),
         ),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.bluetooth),
-            tooltip: 'Bluetooth Settings',
-            onPressed: () {
-              _scaffoldKey.currentState?.openEndDrawer();
-            },
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: GestureDetector(
+              onTap: () {
+                _scaffoldKey.currentState?.openEndDrawer();
+              },
+              child: Image.asset(
+                'assets/Samo-logo.png',
+                height: 40,
+                width: 40,
+              ),
+            ),
           ),
         ],
       ),
