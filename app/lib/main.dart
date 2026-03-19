@@ -45,7 +45,6 @@ class _ControlScreenState extends State<ControlScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      useSafeArea: false,
       appBar: AppBar(
         backgroundColor: const Color(0xFF151515),
         title: const Text(
@@ -70,6 +69,8 @@ class _ControlScreenState extends State<ControlScreen> {
       ),
       body: Container(
         color: const Color(0xFF151515),
+        width: double.infinity,
+        height: double.infinity,
         child: const Center(
           child: Text(
             'Ready',
