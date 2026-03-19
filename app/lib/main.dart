@@ -45,6 +45,7 @@ class _ControlScreenState extends State<ControlScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
+      useSafeArea: false,
       appBar: AppBar(
         backgroundColor: const Color(0xFF151515),
         title: const Text(
