@@ -1,0 +1,34 @@
+# system
+.DS_Store
+Thumbs.db
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# node / flutter
+node_modules/
+.dart_tool/
+build/
+
+# firmware / arduino / esp32
+*.bin
+*.elf
+*.map
+*.hex
+.pio/
+
+# matlab
+*.asv
+
+# webots
+*.wbproj
+
+# logs and temp
+*.log
+*.tmp
+
+# vscode
+.vscode/
