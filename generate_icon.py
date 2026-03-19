@@ -11,7 +11,8 @@ sizes = {
     'xxxhdpi': 192
 }
 
-base_path = r'C:\School\mecanozaurus\app\android\app\src\main\res'
+repo_root = os.path.dirname(os.path.abspath(__file__))
+base_path = os.path.join(repo_root, 'app', 'android', 'app', 'src', 'main', 'res')
 
 for dpi, size in sizes.items():
     # Tworzymy obrazek z ciemnym tłem

@@ -12,8 +12,9 @@ dpi_sizes = {
     'xxxhdpi': 192
 }
 
-base_path = r'C:\School\mecanozaurus\app\android\app\src\main\res'
-source_file = r'C:\School\mecanozaurus\app\assets\Ikona.png'
+repo_root = os.path.dirname(os.path.abspath(__file__))
+base_path = os.path.join(repo_root, 'app', 'android', 'app', 'src', 'main', 'res')
+source_file = os.path.join(repo_root, 'app', 'assets', 'Ikona.png')
 
 # Załaduj źródłowy obraz
 source_img = Image.open(source_file)

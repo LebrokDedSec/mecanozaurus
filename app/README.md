@@ -1,4 +1,4 @@
-# mecanozaurus_app
+# mecanosaurus_app
 
 A new Flutter project.
 

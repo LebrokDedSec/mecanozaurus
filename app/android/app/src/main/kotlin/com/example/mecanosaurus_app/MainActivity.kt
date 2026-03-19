@@ -1,4 +1,4 @@
-package com.example.mecanozaurus_app
+package com.example.mecanosaurus_app
 
 import io.flutter.embedding.android.FlutterActivity
 

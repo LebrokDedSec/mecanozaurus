@@ -1,4 +1,4 @@
-# Mecanozaurus
+# Mecanosaurus
 
 System sterowania robotem z kolami mecanum.
 

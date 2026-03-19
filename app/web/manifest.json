@@ -1,6 +1,6 @@
 {
-    "name": "mecanozaurus_app",
-    "short_name": "mecanozaurus_app",
+    "name": "mecanosaurus_app",
+    "short_name": "mecanosaurus_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

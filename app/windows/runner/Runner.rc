@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "mecanozaurus_app" "\0"
+            VALUE "FileDescription", "mecanosaurus_app" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "mecanozaurus_app" "\0"
+            VALUE "InternalName", "mecanosaurus_app" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2026 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "mecanozaurus_app.exe" "\0"
-            VALUE "ProductName", "mecanozaurus_app" "\0"
+            VALUE "OriginalFilename", "mecanosaurus_app.exe" "\0"
+            VALUE "ProductName", "mecanosaurus_app" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

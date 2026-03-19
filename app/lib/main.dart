@@ -4,23 +4,31 @@ import 'package:google_fonts/google_fonts.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // Hide system UI overlays (status/navigation bars) for full-screen control.
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Color(0xFF151515),
+    systemNavigationBarColor: Color(0xFF151515),
+    systemNavigationBarDividerColor: Color(0xFF151515),
+    statusBarIconBrightness: Brightness.light,
+    systemNavigationBarIconBrightness: Brightness.light,
+  ));
+
+  // Keep immersive fullscreen so system bars are hidden during control mode.
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   // Lock app to landscape for a controller-style interface.
   await SystemChrome.setPreferredOrientations(const [
     DeviceOrientation.landscapeLeft,
     DeviceOrientation.landscapeRight,
   ]);
-  runApp(const MecanozaurusApp());
+  runApp(const MecanosaurusApp());
 }
 
-class MecanozaurusApp extends StatelessWidget {
-  const MecanozaurusApp({super.key});
+class MecanosaurusApp extends StatelessWidget {
+  const MecanosaurusApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Mecanozaurus Controller',
+      title: 'Mecanosaurus Controller',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF0B7285)),
@@ -39,56 +47,57 @@ class ControlScreen extends StatefulWidget {
 }
 
 class _ControlScreenState extends State<ControlScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: const Color(0xFF151515),
-      child: Stack(
-        children: [
-          // Body
-          Container(
-            color: const Color(0xFF151515),
-            child: const Center(
-              child: Text(
-                'Ready',
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
+    return Scaffold(
+      key: _scaffoldKey,
+      appBar: AppBar(
+        primary: false,
+        backgroundColor: const Color(0xFF151515),
+        title: const Text(
+          'Mecanosaurus',
+          style: TextStyle(
+            color: Color(0xFFe63416),
+            fontWeight: FontWeight.w700,
           ),
-          // Custom AppBar
-          Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              color: const Color(0xFF151515),
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Mecanozaurus',
-                    style: TextStyle(
-                      color: Color(0xFFe63416),
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      // Placeholder for drawer action
-                    },
-                    child: Image.asset(
-                      'assets/Samo-logo.png',
-                      height: 40,
-                      width: 40,
-                    ),
-                  ),
-                ],
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: GestureDetector(
+              onTap: () {
+                _scaffoldKey.currentState?.openEndDrawer();
+              },
+              child: Image.asset(
+                'assets/Samo-logo.png',
+                height: 40,
+                width: 40,
               ),
             ),
           ),
         ],
+      ),
+      body: Container(
+        color: const Color(0xFF151515),
+        child: const Center(
+          child: Text(
+            'Ready',
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+      ),
+      endDrawer: Drawer(
+        child: DrawerHeader(
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.primary,
+          ),
+          child: const Text(
+            'Bluetooth Settings',
+            style: TextStyle(color: Colors.white, fontSize: 18),
+          ),
+        ),
       ),
     );
   }
