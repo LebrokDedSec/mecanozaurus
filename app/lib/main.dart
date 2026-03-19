@@ -39,55 +39,56 @@ class ControlScreen extends StatefulWidget {
 }
 
 class _ControlScreenState extends State<ControlScreen> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: _scaffoldKey,
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF151515),
-        title: const Text(
-          'Mecanozaurus',
-          style: TextStyle(color: Color(0xFFe63416)),
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GestureDetector(
-              onTap: () {
-                _scaffoldKey.currentState?.openEndDrawer();
-              },
-              child: Image.asset(
-                'assets/Samo-logo.png',
-                height: 40,
-                width: 40,
+    return Container(
+      color: const Color(0xFF151515),
+      child: Stack(
+        children: [
+          // Body
+          Container(
+            color: const Color(0xFF151515),
+            child: const Center(
+              child: Text(
+                'Ready',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ),
+          // Custom AppBar
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              color: const Color(0xFF151515),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Mecanozaurus',
+                    style: TextStyle(
+                      color: Color(0xFFe63416),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      // Placeholder for drawer action
+                    },
+                    child: Image.asset(
+                      'assets/Samo-logo.png',
+                      height: 40,
+                      width: 40,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
         ],
-      ),
-      body: Container(
-        color: const Color(0xFF151515),
-        width: double.infinity,
-        height: double.infinity,
-        child: const Center(
-          child: Text(
-            'Ready',
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-      ),
-      endDrawer: Drawer(
-        child: DrawerHeader(
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary,
-          ),
-          child: const Text(
-            'Bluetooth Settings',
-            style: TextStyle(color: Colors.white, fontSize: 18),
-          ),
-        ),
       ),
     );
   }
